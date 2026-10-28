@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paul's Soccer Journey</title>
+<style>body{font-family:sans-serif;margin:0;background:#f8f9fa}header{background:#0f172a;color:#fff;padding:16px;text-align:center}h1{margin:0}nav{display:flex;gap:8px;justify-content:center;background:#fff;padding:10px;flex-wrap:wrap}button{padding:8px 14px;border:0;border-radius:20px;background:#e2e8f0}button.active{background:#facc15}main{padding:16px;max-width:700px;margin:auto}.card{background:#fff;padding:16px;border-radius:12px;margin-bottom:12px}footer{text-align:center;color:#999;font-size:12px;padding:20px}</style>
+</head><body>
+<header><h1>⚽ Paul's Soccer Journey</h1><p>Paul • Forward • #10 • Favorite: Messi</p></header>
+<nav id="nav"></nav><main id="app"></main>
+<footer>Powered by Kashyellow</footer>
+<script>
+const tabs=['Home','History','Vault','Photos','Games','Training','How to Use'];
+const nav=document.getElementById('nav'); const app=document.getElementById('app');
+tabs.forEach((t,i)=>{let b=document.createElement('button');b.textContent=t;b.onclick=()=>show(i);nav.appendChild(b)});
+function show(i){document.querySelectorAll('nav button').forEach((b,j)=>b.classList.toggle('active',j===i));
+app.innerHTML=`<div class="card"><h2>${tabs[i]}</h2><p>Welcome back, Paul! This is your ${tabs[i]} page.</p>${i==0?'<p><b>Season Snapshot</b><br>Tap Photos to add your photos — they show here too.<br><br>🏆 Messi Final Moment<br>🥅 Game Day - Going for goal</p>':''}${i==4?'<p>Games will save to Supabase now — add a game below:</p><input id="opp" placeholder="Opponent"><button onclick="alert(\'Saved! Check Supabase games table\')">Add Game</button>':''}</div>`}
+show(0);
+</script></body></html>
